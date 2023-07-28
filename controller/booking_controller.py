@@ -38,5 +38,6 @@ def new_booking_form():
 
 @booking_blueprint.route('/show/<id>')
 def show_booking(id):
-    return render_template('bookings/show_booking.jinja')
+    booking = Booking.query.get(id)
+    return render_template('bookings/show_booking.jinja', booking = booking)
 

@@ -1,4 +1,18 @@
 {% extends 'base.jinja' %}{% block content %}
+    <table>
+        <tr>
+            <th>Booking Reference</th>
+            <th>Booking Date and Time</th>
+            <th>Customer</th>
+            <th>Treatment</th>
+
+        </tr>
     
-    
+        <tr>
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.date_time }}</td>
+            <td>{{ booking.customer.first_name}} {{booking.customer.last_name}}</td>
+            <td>{{ booking.treatment.name}}</td>
+        </tr>
+    </table>
 {% endblock content %}
