@@ -1,0 +1,16 @@
+{% extends 'diary.jinja' %}{% block content %}
+    <table class="bookings_table">
+            <tr>
+                <th>Booking Reference</th>
+                <th>Date / Time</th>
+                <th>Treatment</th>
+            </tr>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.date_time }}</td>
+                <td>{{ booking.treatment.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+{% endblock content %}

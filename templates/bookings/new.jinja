@@ -9,7 +9,7 @@
 <body>
     <form action="/bookings" method="post">
         <label for="date">Enter the date of treatment:</label>
-        <input type="date" name="date" id="date">
+        <input type="datetime-local" name="date_time" id="date_time">
         <label for="treatment">Which treatment would you like to book?</label>
         <select name="treatment" id="treatment">
             {% for treatment in treatments %}
