@@ -26,10 +26,8 @@ def submit_new_booking():
 
 @booking_blueprint.route('/bookings/<id>')
 def show_customers_bookings(id):
-    id = request.form['customer']
-    customer_id = id
-    bookings = bookings.query.get(customer_id)
-    return render_template('customer_bookings.jinja', id=id)
+    bookings = Booking.query.filter_by(customer_id = id).all()
+    return render_template('bookings/customer_bookings.jinja', bookings=bookings)
 
 
 @booking_blueprint.route('/bookings/new')
