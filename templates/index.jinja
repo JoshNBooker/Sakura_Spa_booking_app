@@ -1,0 +1,20 @@
+{% extends 'base.jinja' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+{% block content %}
+<body>
+    <div>
+        <h1>WELCOME</h1>
+        <h3>What would you like to do?</h3>
+        <a href="/bookings/new"><button class="button">Make a booking</button></a>
+        <a href="/bookings"><button>View diary</button></a>
+    </div>
+</body>
+{% endblock content %}
+</html>
