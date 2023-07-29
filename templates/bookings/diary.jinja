@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
 </head>
 <body>
-    <header>
-        <div class="logo"><h3>Sakura <span class="logo__span">Spa</span></h3></div>
-        <a href="/bookings"><button class="header__button">Diary</button></a>
-        <a href="/bookings/new"><button class="header__button">Add</button></a>
-    </header>
+    <div class="container">
+        <header>
+            <div class="logo"><h3>Sakura <span class="logo__span">Spa</span></h3></div>
+            <a href="/bookings"><button class="header__button">Diary</button></a>
+            <a href="/bookings/new"><button class="header__button">Add</button></a>
+            <a href="/"><button>Home</button></a>
+        </header>
+    </div>
     <body>
-        <div class="customer_names_button">
-            <button class="dropdown" data-toggle="dropdown" name="customer">Which customer?
-            <span class="caret"></span></button>
-            <ul class="dropdown-content">
-                {% for customer in customers %}
-                <li><a href="/bookings/{{customer.id}}">{{ customer.first_name }} {{ customer.last_name }}</a></li>
-                {% endfor %}  
-            </ul>
-        </div>
+        <ul>
+            {% for customer in customers %}
+            <li><a href="/bookings/{{customer.id}}">{{ customer.first_name }} {{ customer.last_name }}</a></li>
+            {% endfor %}  
+        </ul>
     </body>
     {% block content %}
         

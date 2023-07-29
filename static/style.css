@@ -1,3 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* container */
+
+.container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+/* nav bar */
+.nav_bar_background_color {
+    background-color: #664d9a;
+    height: 2.25rem;
+}
+
+.nav_bar {
+    display: flex;
+    justify-content: space-between;
+    height: 2.25rem;
+    align-items: center;
+}
+
+.logo {
+    font-family: Kolker Brush;
+    font-size: xx-large;
+    color: #f5c4c1;
+}
+
+.logo__span{
+    color: #f0a834;
+    margin: 0.5rem;
+}
+
+
+
+/* dropdown button */
+
 .dropdown {
     position: relative;
     display: inline-block;

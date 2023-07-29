@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
     <title>{{ title }}</title>
 </head>
-<body>
-    <header>
-        <div class="logo"><h3>Sakura <span class="logo__span">Spa</span></h3></div>
-        <a href="/bookings"><button class="header__button">Diary</button></a>
-        <a href="/bookings/new"><button class="header__button">Add</button></a>
-        <a href="/"><button class="header_button">Home</button></a>
-    </header>
+<div class="nav_bar_background_color">
+    <div class="container">
+        <body>
+            <header class="nav_bar">
+                <div class="logo"><h3>Sakura<span class="logo__span">Spa</span></h3></div>
+                <div class="nav__links">
+                    <a href="/bookings"><button class="header__button"><i class="fa-solid fa-book"></i></button></a>
+                    <a href="/bookings/new"><button class="header__button">Add</button></a>
+                    <a href="/"><button class="header_button">Home</button></a>
+                </div>
+            </header>
+        </body>
+    </div>
+</div>
     <div class="container">{% block content %}
     
     {% endblock %}</div>
-</body>
 </html>
