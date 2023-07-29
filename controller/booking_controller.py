@@ -48,3 +48,16 @@ def delete_booking(id):
     db.session.commit()
     return redirect ('/bookings')
 
+@booking_blueprint.route('/bookings/<id>/edit')
+def show_edit_booking_form(id):
+    booking = Booking.query.get(id)
+    treatments = Treatment.query.all()
+    customers = Customer.query.all()
+    return render_template('bookings/edit_booking_form.jinja', booking=booking, treatments=treatments, customers=customers)
+
+@booking_blueprint.route('/bookings/<id>/edit', methods=["POST"])
+def edit_booking(id):
+    booking = Booking.query.get(id)
+    db.session.commit()
+    return redirect ('/bookings', booking=booking)
+
