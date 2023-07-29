@@ -3,14 +3,12 @@
             <tr>
                 <th>Booking Reference</th>
                 <th>Date / Time</th>
-                <th>Treatment</th>
-                <th>Edit / Delete</th>
+                <th>View / Edit / Delete</th>
             </tr>
             {% for booking in bookings %}
             <tr>
                 <td>{{ booking.id }}</td>
                 <td>{{ booking.date_time }}</td>
-                <td>{{ booking.treatment.name }}</td>
                 <td><a href="/show/{{booking.id}}"><button>O</button></a></td>
             </tr>
             {% endfor %}

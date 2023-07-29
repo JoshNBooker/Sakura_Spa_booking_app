@@ -15,4 +15,9 @@
             <td>{{ booking.treatment.name}}</td>
         </tr>
     </table>
+
+    <p><h3>Edit this booking?</h3></p>
+    <a href="/bookings/{{booking.id}}/edit"><button>O</button></a>
+    <p><h3>Delete this booking?</h3></p>
+    <form action="/bookings/{{booking.id}}/delete" method="post"><button>O</button></form>
 {% endblock content %}

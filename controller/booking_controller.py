@@ -41,3 +41,10 @@ def show_booking(id):
     booking = Booking.query.get(id)
     return render_template('bookings/show_booking.jinja', booking = booking)
 
+@booking_blueprint.route('/bookings/<id>/delete', methods=['POST'])
+def delete_booking(id):
+    booking = Booking.query.get(id)
+    db.session.delete(booking)
+    db.session.commit()
+    return redirect ('/bookings')
+

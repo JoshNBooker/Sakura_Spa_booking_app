@@ -12,10 +12,10 @@
         <a href="/bookings/new"><button class="header__button">Add</button></a>
     </header>
     <body>
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" name="customer">Which customer?
+        <div class="customer_names_button">
+            <button class="dropdown" data-toggle="dropdown" name="customer">Which customer?
             <span class="caret"></span></button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-content">
                 {% for customer in customers %}
                 <li><a href="/bookings/{{customer.id}}">{{ customer.first_name }} {{ customer.last_name }}</a></li>
                 {% endfor %}  
