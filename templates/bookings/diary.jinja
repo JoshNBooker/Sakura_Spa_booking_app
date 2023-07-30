@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <title>{{ title }}</title>
 </head>
-<body>
+<div class="nav_bar_background_color">
     <div class="container">
-        <header>
-            <div class="logo"><h3>Sakura <span class="logo__span">Spa</span></h3></div>
-            <a href="/bookings"><button class="header__button">Diary</button></a>
-            <a href="/bookings/new"><button class="header__button">Add</button></a>
-            <a href="/"><button>Home</button></a>
-        </header>
+        <body>
+            <header class="nav_bar">
+                <div class="logo"><h3>Sakura<span class="logo__span">Spa</span></h3></div>
+                <div class="nav__links">
+                    <a href="/bookings"><button class="header__button">Diary</button></a>
+                    <a href="/bookings/new"><button class="header__button secondary">Add booking</button></a>
+                    <a href="/"><button class="header__button tertiary">Home</button></a>
+                </div>
+            </header>
+        </body>
     </div>
+</div>
     <body>
         <ul>
             {% for customer in customers %}

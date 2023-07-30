@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+html{
+    font-family: Raleway;
+    font-weight: thin;
+}
+
 /* container */
 
 .container {
@@ -14,8 +19,9 @@
 
 /* nav bar */
 .nav_bar_background_color {
-    background-color: #664d9a;
+    background-color: rgba(139,85,117,255);
     height: 2.25rem;
+    box-shadow: 5px 2.5px 6px 6px rgba(29, 29, 29, 0.232);
 }
 
 .nav_bar {
@@ -26,14 +32,67 @@
 }
 
 .logo {
-    font-family: Kolker Brush;
-    font-size: xx-large;
-    color: #f5c4c1;
+    font-family: water brush;
+    font-size: x-large;
+    color: rgba(241,204,218,255);
+}
+
+.header__button {
+    border-radius: 0.8rem;
+    padding: 5px 28px;
+    font-weight:thin;
+    border: none;
+    background-color: rgba(241,204,218,255);
+    font-size: medium;
+    font-family: Raleway;
+    box-shadow: rgb(57, 56, 56) 7px;
+    cursor: pointer;
+    color: rgba(139,85,117,255);
 }
 
 .logo__span{
-    color: #f0a834;
+    color: rgba(254,141,111,255);
     margin: 0.5rem;
+}
+
+/* hero */
+.background_image {
+    background-image: url(peakpx\ \(2\).jpg);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero__container {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hero__text__main {
+    font-size: 7rem;
+    font-family: water brush;
+    color: rgba(43,53,55,255);
+}
+
+.hero__text__secondary {
+    font-size: 5rem;
+}
+
+.body__button {
+    border-radius: 0.8rem;
+    padding: 5px 28px;
+    font-weight:thin;
+    border: none;
+    background-color: rgba(139,85,117,255);
+    font-size: medium;
+    font-family: Raleway;
+    box-shadow: rgb(57, 56, 56) 7px;
+    cursor: pointer;
+    color:rgba(241,204,218,255);
 }
 
 
