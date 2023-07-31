@@ -21,6 +21,14 @@
                 </option>
             {% endfor %}
         </select>
+        <label for="room">Please select a room:</label>
+        <select name="room" id="room" class="booking_form_input">
+            {% for room in rooms %}
+                <option value="{{ room.id }}">
+                {{ room.name }}
+                </option>
+            {% endfor %}
+            </select>
         <input type="submit" name="submit" id="submit">
     </form>
 </div>

@@ -37,7 +37,8 @@ def show_customers_bookings(id):
 def new_booking_form():
     treatments = Treatment.query.all()
     customers = Customer.query.all()
-    return render_template('bookings/new.jinja', title='make a booking', treatments=treatments, customers=customers)
+    rooms = Room.query.all()
+    return render_template('bookings/new.jinja', title='make a booking', treatments=treatments, customers=customers, rooms=rooms)
 
 @booking_blueprint.route('/show/<id>')
 def show_booking(id):
