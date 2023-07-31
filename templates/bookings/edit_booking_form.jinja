@@ -1,6 +1,6 @@
 {% extends 'base.jinja' %} {% block content %}
 <div class="container">
-    <form action="/bookings" method="post">
+    <form action="/bookings" method="post" class="form">
         <label for="date">Enter the date of treatment:</label>
         <input type="datetime-local" name="date_time" id="date_time" value="{{booking.date_time}}">
         <label for="treatment">Which treatment would you like to book?</label>

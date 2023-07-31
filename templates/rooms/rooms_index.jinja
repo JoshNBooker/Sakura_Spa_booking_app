@@ -1,8 +1,17 @@
 {% extends 'base.jinja' %}{% block content %}
-    <main><h1>Click a Room below to view bookings: </h1></main>
-    <ul class="Room_list">
-        {% for room in rooms %}
-            <li><a href="/rooms/{{room.id}}">{{ room.name }}</a></li>
-        {% endfor %}
-    </ul>
+    <main class="page_title"><h1>Click a Room below to view bookings: </h1></main>
+    <div class="room_page_container">
+        <div class="room_page_left">
+            <ul class="room_list">
+                {% for room in rooms %}
+                    <li class="room__link"><a href="/rooms/{{room.id}}">{{ room.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="room_page_right">
+            <img src="static/massage_room_1.jpg" alt="massage room" class="room_picture">
+            <img src="static/sauna_1.jpg" alt="sauna" class="room_picture">
+            <img src="static/kitchen.jpg" alt="kitchen" class="room_picture">
+        </div>
+    </div>
 {% endblock content %}

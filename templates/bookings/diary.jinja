@@ -23,21 +23,14 @@
 </div>
 <div class="container">
     <body>
-        <main>
-            <h1>Customer diaries</h1>
-            <p>
-                <h3>Please select the customer you need to access</h3>
-            </p>
-                <ul id="customerDropdown" name="customerID">
-                    {% for customer in customers %}
-                        <li> <a href="/bookings/{{ customer.id }}">{{ customer.first_name }} {{ customer.last_name }}</a></li>
-                    {% endfor %}
-                </ul>  
-            <div class="booking__table">
-                {% block content %}
-                {% endblock content %}
-            </div>
-        </main>
+        <main class="page_title"><h1>Select the customer to access:</h1></main>
+        <ul id="customer_list" class="customer_list">
+            {% for customer in customers %}
+                <li> <a href="/bookings/{{ customer.id }}">{{ customer.first_name }} {{ customer.last_name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% block content %}
+        {% endblock content %}
     </body>
 </div>
 </html>

@@ -8,6 +8,29 @@ html{
     font-weight: thin;
 }
 
+.page_title {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.form {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.table {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
 /* container */
 
 .container {
@@ -105,5 +128,40 @@ html{
 /* CREATE BOOKING PAGE */
 
 .booking_form_input {
+    margin: 1rem;
+}
+
+/* EDIT BOOKINGS PAGE */
+
+.edit_delete {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+/* ROOMS PAGE */
+
+.room_page_container{
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.room_picture {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 25%;
+}
+
+.room_list {
+    list-style: none;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+}
+
+.room__link {
     margin: 1rem;
 }
