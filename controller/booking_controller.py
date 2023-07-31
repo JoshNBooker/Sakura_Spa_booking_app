@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, Blueprint, request
 from app import db
 from models import Customer, Treatment, Booking,Room
+from datetime import datetime, timedelta
 
 booking_blueprint = Blueprint('booking',__name__)
 
@@ -24,6 +25,12 @@ def submit_new_booking():
     customer_id = request.form["customer"]
     treatment_id = request.form["treatment"]
     new_booking = Booking(date_time = date_time,customer_id = customer_id,treatment_id = treatment_id)
+    for b in Booking.query.all():
+        actual_date_time = date_time[0:10] + " " + date_time[11:16]
+        difference = datetime.strptime(actual_date_time, "%Y-%m-%d %H:%M") - b.date_time
+        two_hours = timedelta(hours=2)
+        if difference >= two_hours:
+            print("all good")
     db.session.add(new_booking)
     db.session.commit()
     return redirect('/bookings')
