@@ -24,21 +24,44 @@ def submit_new_booking():
     date_time = request.form["date_time"]
     customer_id = request.form["customer"]
     treatment_id = request.form["treatment"]
-    new_booking = Booking(date_time = date_time,customer_id = customer_id,treatment_id = treatment_id)
+    room_id = request.form["room"]
+    new_booking = Booking(date_time = date_time,customer_id = customer_id,treatment_id = treatment_id, room_id = room_id)
+    is_available = True
     for b in Booking.query.all():
-        actual_date_time = date_time[0:10] + " " + date_time[11:16]
-        difference = datetime.strptime(actual_date_time, "%Y-%m-%d %H:%M") - b.date_time
+        new_date_time = datetime.strptime((date_time[0:10] + " " + date_time[11:16]), "%Y-%m-%d %H:%M")
         two_hours = timedelta(hours=2)
-        if difference >= two_hours:
-            print("all good")
-    db.session.add(new_booking)
-    db.session.commit()
-    return redirect('/bookings')
+        booking_start = b.date_time - two_hours
+        booking_end = b.date_time + two_hours
+        booking_room_id = b.room_id
+        if new_date_time >= booking_start and new_date_time <= booking_end and int(room_id) == booking_room_id:
+            is_available = False
+    if is_available:
+        db.session.add(new_booking)
+        db.session.commit()
+        return redirect("/bookings/success")
+    else:
+        return redirect('/bookings/denied')
+        
+@booking_blueprint.route('/bookings/success')
+def new_booking_success():
+    bookings = Booking.query.all()
+    customers = Customer.query.all()
+    treatments = Treatment.query.all()
+    rooms = Room.query.all()
+    return render_template('bookings/success.jinja', bookings=bookings, customers=customers, treatments=treatments, rooms=rooms)
+
+@booking_blueprint.route('/bookings/denied')
+def new_booking_failure():
+    bookings = Booking.query.all()
+    customers = Customer.query.all()
+    treatments = Treatment.query.all()
+    rooms = Room.query.all()
+    return render_template('bookings/denied.jinja',bookings=bookings, customers=customers, treatments=treatments, rooms=rooms)
 
 @booking_blueprint.route('/bookings/<id>')
 def show_customers_bookings(id):
     bookings = Booking.query.filter_by(customer_id = id).all()
-    return render_template("bookings/customer_bookings.jinja", bookings=bookings)
+    return render_template("bookings/customer_bookings.jinja")
 
 @booking_blueprint.route('/bookings/new')
 def new_booking_form():
