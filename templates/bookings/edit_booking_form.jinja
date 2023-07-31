@@ -1,4 +1,5 @@
 {% extends 'base.jinja' %} {% block content %}
+<div class="container">
     <form action="/bookings" method="post">
         <label for="date">Enter the date of treatment:</label>
         <input type="datetime-local" name="date_time" id="date_time" value="{{booking.date_time}}">
@@ -22,4 +23,5 @@
         </select>
         <input type="submit" name="submit" id="submit">
     </form>
+</div>
 {% endblock content %}

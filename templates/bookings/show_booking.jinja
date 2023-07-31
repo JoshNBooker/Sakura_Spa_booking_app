@@ -19,5 +19,11 @@
     <p><h3>Edit this booking?</h3></p>
     <a href="/bookings/{{booking.id}}/edit"><button>O</button></a>
     <p><h3>Delete this booking?</h3></p>
-    <form action="/bookings/{{booking.id}}/delete" method="post"><button>O</button></form>
+    <form action="/bookings/{{booking.id}}/delete" method="post" ><button class="delete_button" onclick="areyousurefunction()">O</button>
+    <script>function areyousurefunction() {
+        confirm("Are you sure you want to delete this booking?");
+    }
+    </script>
+    </form>
+
 {% endblock content %}

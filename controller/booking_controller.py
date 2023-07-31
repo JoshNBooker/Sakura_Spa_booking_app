@@ -4,15 +4,19 @@ from models import Customer, Treatment, Booking
 
 booking_blueprint = Blueprint('booking',__name__)
 
+# HOME
+
 @booking_blueprint.route('/')
 def home_page():
     return render_template('index.jinja', title = 'Sakura Spa')
+
+# BOOKINGS
 
 @booking_blueprint.route('/bookings')
 def display_bookings():
     bookings = Booking.query.all()
     customers = Customer.query.all()
-    return render_template('bookings/diary.jinja', title = 'Diary', bookings=bookings, customers=customers)
+    return render_template('bookings/diary.jinja', bookings=bookings, customers=customers)
 
 @booking_blueprint.route('/bookings', methods=["POST"])
 def submit_new_booking():
@@ -27,8 +31,7 @@ def submit_new_booking():
 @booking_blueprint.route('/bookings/<id>')
 def show_customers_bookings(id):
     bookings = Booking.query.filter_by(customer_id = id).all()
-    return render_template('bookings/customer_bookings.jinja', bookings=bookings)
-
+    return render_template("bookings/customer_bookings.jinja", bookings=bookings)
 
 @booking_blueprint.route('/bookings/new')
 def new_booking_form():
@@ -60,4 +63,10 @@ def edit_booking(id):
     booking = Booking.query.get(id)
     db.session.commit()
     return redirect ('/bookings', booking=booking)
+
+# ROOMS
+
+@booking_blueprint.route('/rooms')
+def rooms_index():
+    return render_template ('rooms/rooms_index.jinja')
 

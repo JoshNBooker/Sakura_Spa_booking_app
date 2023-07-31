@@ -1,5 +1,5 @@
 from app import db
-from models import Customer,Booking,Treatment
+from models import Customer,Booking,Treatment, Room
 import click
 
 from flask.cli import with_appcontext
@@ -33,6 +33,24 @@ def seed():
     db.session.add(treatment5)
     db.session.add(treatment6)
     db.session.commit()
+
+    room1 = Room(name="Massage Room 1")
+    room2 = Room(name="Massage Room 2")
+    room3 = Room(name="Sauna 1")
+    room4 = Room(name="Sauna 2")
+    room5 = Room(name="Hot Stone Therapy Room")
+    room6 = Room(name="Cold Plunge Tank")
+    room7 = Room(name="Kitchen")
+
+    db.session.add(room1)
+    db.session.add(room2)
+    db.session.add(room3)
+    db.session.add(room4)
+    db.session.add(room5)
+    db.session.add(room6)
+    db.session.add(room7)
+    db.session.commit()
+
 
     booking1 = Booking(date_time="2023-07-11 12:50", customer_id=customer1.id, treatment_id=treatment1.id)
     booking2 = Booking(date_time="2023-07-13 13:00", customer_id=customer2.id, treatment_id=treatment2.id)

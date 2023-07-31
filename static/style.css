@@ -32,8 +32,9 @@ html{
 }
 
 .logo {
-    font-family: water brush;
-    font-size: x-large;
+    margin-top: 2rem;
+    font-family: Onsen Japan Demo;
+    font-size: medium;
     color: rgba(241,204,218,255);
 }
 
@@ -50,10 +51,15 @@ html{
     color: rgba(139,85,117,255);
 }
 
+.header__button .secondary {
+    margin-top: 1rem;
+}
+
 .logo__span{
     color: rgba(254,141,111,255);
     margin: 0.5rem;
 }
+/* WELCOME PAGE */
 
 /* hero */
 .background_image {
@@ -73,8 +79,9 @@ html{
 }
 
 .hero__text__main {
-    font-size: 7rem;
-    font-family: water brush;
+    margin-top: 10rem;
+    font-size: 3rem;
+    font-family: Onsen Japan Demo;
     color: rgba(43,53,55,255);
 }
 
@@ -95,25 +102,8 @@ html{
     color:rgba(241,204,218,255);
 }
 
+/* CREATE BOOKING PAGE */
 
-
-/* dropdown button */
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(223, 56, 56, 0.2);
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+.booking_form_input {
+    margin: 1rem;
 }
