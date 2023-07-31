@@ -52,11 +52,11 @@ def seed():
     db.session.commit()
 
 
-    booking1 = Booking(date_time="2023-07-11 12:50", customer_id=customer1.id, treatment_id=treatment1.id)
-    booking2 = Booking(date_time="2023-07-13 13:00", customer_id=customer2.id, treatment_id=treatment2.id)
-    booking3 = Booking(date_time="2023-07-14 13:45", customer_id=customer3.id, treatment_id=treatment3.id)
-    booking4 = Booking(date_time="2023-07-14 14:00", customer_id=customer2.id, treatment_id=treatment4.id)
-    booking5 = Booking(date_time="2023-07-15 12:00", customer_id=customer1.id, treatment_id=treatment5.id)
+    booking1 = Booking(date_time="2023-07-11 12:50", customer_id=customer1.id, treatment_id=treatment1.id, room_id=room1.id) 
+    booking2 = Booking(date_time="2023-07-13 13:00", customer_id=customer2.id, treatment_id=treatment2.id, room_id=room3.id)
+    booking3 = Booking(date_time="2023-07-14 13:45", customer_id=customer3.id, treatment_id=treatment3.id, room_id=room5.id)
+    booking4 = Booking(date_time="2023-07-14 14:00", customer_id=customer2.id, treatment_id=treatment4.id, room_id=room6.id)
+    booking5 = Booking(date_time="2023-07-15 12:00", customer_id=customer1.id, treatment_id=treatment5.id, room_id=room5.id)
 
 
     db.session.add(booking1)

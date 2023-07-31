@@ -1,4 +1,8 @@
 {% extends 'base.jinja' %}{% block content %}
-    
-    
+    <main><h1>View Rooms below: </h1></main>
+    <ul class="Room_list">
+        {% for room in rooms %}
+            <li><a href="/rooms/{{room.id}}">{{ room.name }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock content %}

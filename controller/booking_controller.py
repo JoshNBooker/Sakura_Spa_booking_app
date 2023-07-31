@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, Blueprint, request
 from app import db
-from models import Customer, Treatment, Booking
+from models import Customer, Treatment, Booking,Room
 
 booking_blueprint = Blueprint('booking',__name__)
 
@@ -68,5 +68,12 @@ def edit_booking(id):
 
 @booking_blueprint.route('/rooms')
 def rooms_index():
-    return render_template ('rooms/rooms_index.jinja')
+    rooms=Room.query.all()
+    return render_template ('rooms/rooms_index.jinja', rooms=rooms)
+
+@booking_blueprint.route('/rooms/<id>')
+def show_room(id):
+    bookings=Booking.query.filter_by(room_id=id).all()
+    room = Room.query.get(id)
+    return render_template('rooms/room_bookings.jinja', bookings=bookings, room=room)
 

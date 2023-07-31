@@ -1,4 +1,5 @@
 {% extends 'base.jinja' %}{% block content %}
+    <main><h1>View bookings for {{room.name}} below:</h1></main>
     <table>
         <tr>
             <th>Booking Reference:</th>
@@ -8,24 +9,13 @@
             <th>Room:</th>
 
         </tr>
-    
-        <tr>
+        {% for booking in bookings %}
+            <tr>
             <td>{{ booking.id }}</td>
             <td>{{ booking.date_time }}</td>
             <td>{{ booking.customer.first_name }} {{booking.customer.last_name}}</td>
             <td>{{ booking.treatment.name }}</td>
-            <td>{{ booking.room.name }}</td>
+        {% endfor %}
         </tr>
     </table>
-
-    <p><h3>Edit this booking?</h3></p>
-    <a href="/bookings/{{booking.id}}/edit"><button>O</button></a>
-    <p><h3>Delete this booking?</h3></p>
-    <form action="/bookings/{{booking.id}}/delete" method="post" ><button class="delete_button" onclick="areyousurefunction()">O</button>
-    <script>function areyousurefunction() {
-        confirm("Are you sure you want to delete this booking?");
-    }
-    </script>
-    </form>
-
 {% endblock content %}
