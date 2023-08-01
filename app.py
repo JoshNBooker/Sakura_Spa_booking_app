@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from controller.booking_controller import booking_blueprint
-from models import Customer, Booking, Treatment
+from models import Customer, Booking, Treatment, Room
 
 app.register_blueprint(booking_blueprint)
 from seed import seed

@@ -1,0 +1,21 @@
+{% extends 'base.jinja' %}{% block content %}
+    <main class="page_title"><h1>View bookings for our {{room.name}} below:</h1></main>
+    <table class="table">
+        <tr>
+            <th>Booking Reference:</th>
+            <th>Booking Date and Time:</th>
+            <th>Customer:</th>
+            <th>Treatment:</th>
+            <th>Room:</th>
+
+        </tr>
+        {% for booking in bookings %}
+            <tr>
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.date_time }}</td>
+            <td>{{ booking.customer.first_name }} {{booking.customer.last_name}}</td>
+            <td>{{ booking.treatment.name }}</td>
+        {% endfor %}
+        </tr>
+    </table>
+{% endblock content %}

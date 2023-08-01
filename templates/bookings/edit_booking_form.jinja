@@ -1,5 +1,6 @@
 {% extends 'base.jinja' %} {% block content %}
-    <form action="/bookings" method="post">
+<div class="container">
+    <form action="/bookings" method="post" class="form">
         <label for="date">Enter the date of treatment:</label>
         <input type="datetime-local" name="date_time" id="date_time" value="{{booking.date_time}}">
         <label for="treatment">Which treatment would you like to book?</label>
@@ -20,6 +21,15 @@
                 </option>
             {% endfor %}
         </select>
+        <label for="room">Please select a room:</label>
+        <select name="room" id="room" class="booking_form_input">
+            {% for room in rooms %}
+                <option value="{{ room.id }}">
+                {{ room.name }}
+                </option>
+            {% endfor %}
+            </select>
         <input type="submit" name="submit" id="submit">
     </form>
+</div>
 {% endblock content %}

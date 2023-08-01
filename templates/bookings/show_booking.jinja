@@ -1,23 +1,32 @@
 {% extends 'base.jinja' %}{% block content %}
-    <table>
+<main class="page_title"><h1>Booking {{booking.id}}</h1></main>
+    <table class="table booking_table">
         <tr>
-            <th>Booking Reference</th>
-            <th>Booking Date and Time</th>
-            <th>Customer</th>
-            <th>Treatment</th>
+            <th>Booking Reference:</th>
+            <th>Booking Date and Time:</th>
+            <th>Customer:</th>
+            <th>Treatment:</th>
+            <th>Room:</th>
 
         </tr>
     
         <tr>
             <td>{{ booking.id }}</td>
             <td>{{ booking.date_time }}</td>
-            <td>{{ booking.customer.first_name}} {{booking.customer.last_name}}</td>
-            <td>{{ booking.treatment.name}}</td>
+            <td>{{ booking.customer.first_name }} {{booking.customer.last_name}}</td>
+            <td>{{ booking.treatment.name }}</td>
+            <td>{{ booking.room.name }}</td>
         </tr>
     </table>
-
-    <p><h3>Edit this booking?</h3></p>
-    <a href="/bookings/{{booking.id}}/edit"><button>O</button></a>
-    <p><h3>Delete this booking?</h3></p>
-    <form action="/bookings/{{booking.id}}/delete" method="post"><button>O</button></form>
+    <div class="edit_delete">
+        <p><h3>Edit this booking?</h3></p>
+        <a href="/bookings/{{booking.id}}/edit"><button class="body__button"><i class="fa-solid fa-pencil"></i></button></a>
+        <p><h3>Delete this booking?</h3></p>
+        <form action="/bookings/{{booking.id}}/delete" method="post" ><button class="header__button" onclick="areyousurefunction()"><i class="fa-solid fa-trash"></i></button>
+        <script>function areyousurefunction() {
+            confirm("Are you sure you want to delete this booking?");
+        }
+        </script>
+        </form>
+    </div>
 {% endblock content %}

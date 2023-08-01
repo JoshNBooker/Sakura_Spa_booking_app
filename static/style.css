@@ -8,6 +8,29 @@ html{
     font-weight: thin;
 }
 
+.page_title {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.form {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.table {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
 /* container */
 
 .container {
@@ -31,10 +54,8 @@ html{
     align-items: center;
 }
 
-.logo {
-    font-family: water brush;
-    font-size: x-large;
-    color: rgba(241,204,218,255);
+.logo_image {
+    height: 2rem;
 }
 
 .header__button {
@@ -50,10 +71,15 @@ html{
     color: rgba(139,85,117,255);
 }
 
+.header__button .secondary {
+    margin-top: 1rem;
+}
+
 .logo__span{
-    color: rgba(254,141,111,255);
+    color: rgba(249,170,151,255);
     margin: 0.5rem;
 }
+/* WELCOME PAGE */
 
 /* hero */
 .background_image {
@@ -73,8 +99,9 @@ html{
 }
 
 .hero__text__main {
-    font-size: 7rem;
-    font-family: water brush;
+    margin-top: 10rem;
+    font-size: 3rem;
+    font-family: Onsen Japan Demo;
     color: rgba(43,53,55,255);
 }
 
@@ -95,25 +122,59 @@ html{
     color:rgba(241,204,218,255);
 }
 
+/* CREATE BOOKING PAGE */
 
-
-/* dropdown button */
-
-.dropdown {
-    position: relative;
-    display: inline-block;
+.booking_form_input {
+    margin: 1rem;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(223, 56, 56, 0.2);
-    padding: 12px 16px;
-    z-index: 1;
+/* CUSTOMER BOOKING PAGE */
+
+.body__button.customer_page {
+    text-align: center;
+    margin-right: auto;
+    margin-left: 42.5%;
+    margin-top: 3rem;
+    width: 10rem;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+/* SHOW BOOKING PAGE */
+
+.table.booking_table {
+    margin-bottom: 3rem;
+}
+
+/* EDIT BOOKINGS PAGE */
+
+.edit_delete {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+/* ROOMS PAGE */
+
+.room_page_container{
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.room_picture {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 25%;
+}
+
+.room_list {
+    list-style: none;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+}
+
+.room__link {
+    margin: 1rem;
 }

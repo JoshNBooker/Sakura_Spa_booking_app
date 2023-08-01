@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>{{ title }}</title>
 </head>
 <div class="nav_bar_background_color">
     <div class="container">
         <body>
             <header class="nav_bar">
-                <div class="logo"><h3>Sakura<span class="logo__span">Spa</span></h3></div>
+                <div class="logo"><a href="/"><img src="static/logo.jpg" alt="Sakura Spa Logo" class="logo_image"></a></div>
                 <div class="nav__links">
-                    <a href="/bookings"><button class="header__button">Diary</button></a>
-                    <a href="/bookings/new"><button class="header__button secondary">Add booking</button></a>
-                    <a href="/"><button class="header__button tertiary">Home</button></a>
+                    <a href="/bookings"><button class="header__button"><i class="fa-solid fa-book"></i></button></a>
+                    <a href="/bookings/new"><button class="header__button secondary"><i class="fa-solid fa-plus"></i></button></a>
+                    <a href="/"><button class="header__button tertiary"><i class="fa-solid fa-house"></i></button></a>
                 </div>
             </header>
         </body>

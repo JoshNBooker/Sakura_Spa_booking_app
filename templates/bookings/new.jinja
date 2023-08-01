@@ -1,36 +1,64 @@
-{% extends 'base.jinja' %}{% block content %}
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>{{ title }}</title>
 </head>
-<body>
-    <form action="/bookings" method="post">
-        <label for="date">Enter the date of treatment:</label>
-        <input type="datetime-local" name="date_time" id="date_time">
-        <label for="treatment">Which treatment would you like to book?</label>
-        <select name="treatment" id="treatment">
-            {% for treatment in treatments %}
-                <option 
-                value="{{ treatment.id }}">
-                {{ treatment.name }}
-                </option>
-            {% endfor %}
-        </select>
-        <label for="customer">Which customer is having the treatment?</label>
-        <select name="customer" id="customer">
-            {% for customer in customers %}
-                <option 
-                value="{{ customer.id }}">
-                {{ customer.first_name }} {{ customer.last_name }}
-                </option>
-            {% endfor %}
-        </select>
-        <input type="submit" name="submit" id="submit">
-    </form>
-</body>
+<div class="nav_bar_background_color">
+    <div class="container">
+        <body>
+            <header class="nav_bar">
+                <div class="logo"><a href="/"><img src="static/logo.jpg" alt="Sakura Spa Logo" class="logo_image"></a></div>
+                <div class="nav__links">
+                    <a href="/bookings"><button class="header__button"><i class="fa-solid fa-book"></i></button></a>
+                    <a href="/bookings/new"><button class="header__button secondary"><i class="fa-solid fa-plus"></i></button></a>
+                    <a href="/"><button class="header__button tertiary"><i class="fa-solid fa-house"></i></button></a>
+                </div>
+            </header>
+        </body>
+    </div>
+</div>
+<div class="container">
+    <main class="page_title"><h1>Please complete the booking form below</h1></main>
+    <body>
+        <form action="/bookings" method="post" class="form">
+            <label for="date">Enter the date of treatment:</label>
+            <input type="datetime-local" name="date_time" id="date_time" class="booking_form_input" step="900"><br>
+            <label for="treatment">Which treatment would you like to book?</label>
+            <select name="treatment" id="treatment" class="booking_form_input">
+                {% for treatment in treatments %}
+                    <option 
+                    value="{{ treatment.id }}">
+                    {{ treatment.name }}
+                    </option>
+                {% endfor %}
+            </select> <br>
+            <label for="customer">Which customer is having the treatment?</label>
+            <select name="customer" id="customer" class="booking_form_input">
+                {% for customer in customers %}
+                    <option 
+                    value="{{ customer.id }}">
+                    {{ customer.first_name }} {{ customer.last_name }}
+                    </option>
+                {% endfor %}
+            </select> <br>
+            <label for="room">Please select a room:</label>
+            <select name="room" id="room" class="booking_form_input">
+                {% for room in rooms %}
+                    <option value="{{ room.id }}">
+                    {{ room.name }}
+                    </option>
+                {% endfor %}
+            </select>
+            <input type="submit" name="submit" id="submit" class="header__button secondary">
+        </form>
+        {% block content %}
+            
+        {% endblock content %}
+    </body>
+</div>
 </html>
-{% endblock content %}
+

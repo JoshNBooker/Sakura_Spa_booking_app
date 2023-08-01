@@ -1,16 +1,20 @@
 {% extends 'bookings/diary.jinja' %}{% block content %}
-    <table class="bookings_table">
-            <tr>
-                <th>Booking Reference</th>
-                <th>Date / Time</th>
-                <th>View / Edit / Delete</th>
-            </tr>
-            {% for booking in bookings %}
-            <tr>
-                <td>{{ booking.id }}</td>
-                <td>{{ booking.date_time }}</td>
-                <td><a href="/show/{{booking.id}}"><button>O</button></a></td>
-            </tr>
-            {% endfor %}
-        </table>
-{% endblock content %}
+    <table class="table">
+        <tr>
+            <th>Booking Reference</th>
+            <th>Date / Time</th>
+            <th>View / Edit / Delete</th>
+        </tr>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.date_time }}</td>
+            <td><a href="/show/{{booking.id}}"><button class="body__button"><i class="fa-solid fa-eye"></i></button></a></td>
+        </tr>
+        {%endfor%}
+    </table>
+    <div class="back_to_customers">
+        <div class="body_button_container"><a href="/bookings"><button class="customer_page body__button">Back to customer select</button></a></div>
+    </div>
+
+{% endblock content %}}
