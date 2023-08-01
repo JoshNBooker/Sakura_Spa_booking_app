@@ -5,6 +5,37 @@ from datetime import datetime, timedelta
 
 booking_blueprint = Blueprint('booking',__name__)
 
+# FUNCTIONS
+
+def check_booking(booking):
+    is_available = True
+    for b in Booking.query.all():
+        if type(b.date_time) is str:
+            b.date_time = datetime.strptime((b.date_time[0:10] + " " + b.date_time[11:16]), "%Y-%m-%d %H:%M")
+            two_hours = timedelta(hours=2)
+            booking_start = b.date_time - two_hours
+            booking_end = b.date_time + two_hours
+            booking_room_id = b.room_id
+            if new_date_time >= booking_start and new_date_time <= booking_end and int(booking.room_id) == booking_room_id:
+                is_available = False
+        elif type(booking.date_time) is str:
+            new_date_time = datetime.strptime((booking.date_time[0:10] + " " + booking.date_time[11:16]), "%Y-%m-%d %H:%M")
+            two_hours = timedelta(hours=2)
+            booking_start = b.date_time - two_hours
+            booking_end = b.date_time + two_hours
+            booking_room_id = b.room_id
+            if new_date_time >= booking_start and new_date_time <= booking_end and int(booking.room_id) == booking_room_id:
+                is_available = False
+        elif type(new_date_time) is str:
+            new_date_time = booking.date_time
+            two_hours = timedelta(hours=2)
+            booking_start = b.date_time - two_hours
+            booking_end = b.date_time + two_hours
+            booking_room_id = b.room_id
+        if new_date_time >= booking_start and new_date_time <= booking_end and int(booking.room_id) == booking_room_id:
+            is_available = False
+    return is_available
+
 # HOME
 
 @booking_blueprint.route('/')
@@ -26,16 +57,8 @@ def submit_new_booking():
     treatment_id = request.form["treatment"]
     room_id = request.form["room"]
     new_booking = Booking(date_time = date_time,customer_id = customer_id,treatment_id = treatment_id, room_id = room_id)
-    is_available = True
-    for b in Booking.query.all():
-        new_date_time = datetime.strptime((date_time[0:10] + " " + date_time[11:16]), "%Y-%m-%d %H:%M")
-        two_hours = timedelta(hours=2)
-        booking_start = b.date_time - two_hours
-        booking_end = b.date_time + two_hours
-        booking_room_id = b.room_id
-        if new_date_time >= booking_start and new_date_time <= booking_end and int(room_id) == booking_room_id:
-            is_available = False
-    if is_available:
+    availability = check_booking(new_booking)
+    if availability:
         db.session.add(new_booking)
         db.session.commit()
         return redirect("/bookings/success")
@@ -88,13 +111,34 @@ def show_edit_booking_form(id):
     booking = Booking.query.get(id)
     treatments = Treatment.query.all()
     customers = Customer.query.all()
-    return render_template('bookings/edit_booking_form.jinja', booking=booking, treatments=treatments, customers=customers)
+    rooms = Room.query.all()
+    return render_template('bookings/edit_booking_form.jinja', booking=booking, treatments=treatments, customers=customers, rooms=rooms)
 
-@booking_blueprint.route('/bookings/<id>/edit', methods=["POST"])
+@booking_blueprint.route('/bookings/<id>', methods=["POST"])
 def edit_booking(id):
+    date_time = request.form["date_time"]
+    customer_id = request.form["customer"]
+    treatment_id = request.form["treatment"]
+    room_id = request.form["room"]
     booking = Booking.query.get(id)
-    db.session.commit()
-    return redirect ('/bookings', booking=booking)
+    booking.date_time = date_time
+    booking.customer_id = customer_id
+    booking.treatment_id = treatment_id
+    booking.room_id = room_id
+    availability = check_booking(booking)
+    id = customer_id
+    if availability:
+        db.session.commit()
+        return redirect ('/bookings/edit/success')
+    return redirect ('/bookings/edit/denied')
+
+@booking_blueprint.route('/bookings/edit/success')
+def edit_booking_success():
+    return render_template('bookings/edit_success.jinja')
+
+@booking_blueprint.route('/bookings/edit/denied')
+def edit_booking_failure():
+    return render_template('bookings/edit_denied.jinja')
 
 # ROOMS
 

@@ -1,35 +1,36 @@
 {% extends 'base.jinja' %} {% block content %}
 <div class="container">
-    <form action="/bookings" method="post" class="form">
-        <label for="date">Enter the date of treatment:</label>
-        <input type="datetime-local" name="date_time" id="date_time" value="{{booking.date_time}}">
-        <label for="treatment">Which treatment would you like to book?</label>
-        <select name="treatment" id="treatment">
-            {% for treatment in treatments %}
-                <option 
-                value="{{ treatment.id }}">
-                {{ treatment.name }}
-                </option>
-            {% endfor %}
-        </select>
-        <label for="customer">Which customer is having the treatment?</label>
-        <select name="customer" id="customer">
-            {% for customer in customers %}
-                <option 
-                value="{{ customer.id }}">
-                {{ customer.first_name }} {{ customer.last_name }}
-                </option>
-            {% endfor %}
-        </select>
-        <label for="room">Please select a room:</label>
-        <select name="room" id="room" class="booking_form_input">
-            {% for room in rooms %}
-                <option value="{{ room.id }}">
-                {{ room.name }}
-                </option>
-            {% endfor %}
+    <main class="page_title"><h1>Edit Booking #{{booking.id}}</h1></main>
+    <body>
+        <form action="/bookings/{{booking.id}}" method="post" class="form">
+            <label for="date">Enter the date of treatment:</label>
+            <input type="datetime-local" name="date_time" id="date_time" class="booking_form_input" step="900"><br>
+            <label for="treatment">Which treatment would you like to book?</label>
+            <select name="treatment" id="treatment" class="booking_form_input">
+                {% for treatment in treatments %}
+                    <option 
+                    value="{{ treatment.id }}">
+                    {{ treatment.name }}
+                    </option>
+                {% endfor %}
+            </select> <br>
+            <label for="customer">Which customer is having the treatment?</label>
+            <select name="customer" id="customer" class="booking_form_input">
+                {% for customer in customers %}
+                    <option 
+                    value="{{ customer.id }}">
+                    {{ customer.first_name }} {{ customer.last_name }}
+                    </option>
+                {% endfor %}
+            </select> <br>
+            <label for="room">Please select a room:</label>
+            <select name="room" id="room" class="booking_form_input">
+                {% for room in rooms %}
+                    <option value="{{ room.id }}">
+                    {{ room.name }}
+                    </option>
+                {% endfor %}
             </select>
-        <input type="submit" name="submit" id="submit">
-    </form>
+            <input type="submit" name="submit" id="submit" class="header__button secondary">
 </div>
 {% endblock content %}
