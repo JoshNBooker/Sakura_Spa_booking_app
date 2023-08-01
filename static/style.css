@@ -25,12 +25,16 @@ html{
 }
 
 .table {
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
     margin-right: auto;
     margin-left: auto;
     width: 100%;
 }
 
+.table td{
+    padding:0 2rem 0 2rem;
+}
 /* container */
 
 .container {
@@ -139,7 +143,10 @@ html{
 }
 
 .customer_list {
-    margin-left: 42.5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
 }
 
 /* SHOW BOOKING PAGE */
