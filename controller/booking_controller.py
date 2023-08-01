@@ -60,8 +60,9 @@ def new_booking_failure():
 
 @booking_blueprint.route('/bookings/<id>')
 def show_customers_bookings(id):
+    customers =  Customer.query.all()
     bookings = Booking.query.filter_by(customer_id = id).all()
-    return render_template("bookings/customer_bookings.jinja", bookings=bookings)
+    return render_template("bookings/customer_bookings.jinja", bookings=bookings, customers=customers)
 
 @booking_blueprint.route('/bookings/new')
 def new_booking_form():

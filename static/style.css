@@ -138,6 +138,10 @@ html{
     width: 10rem;
 }
 
+.customer_list {
+    margin-left: 42.5%;
+}
+
 /* SHOW BOOKING PAGE */
 
 .table.booking_table {
