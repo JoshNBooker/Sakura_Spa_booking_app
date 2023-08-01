@@ -54,11 +54,8 @@ html{
     align-items: center;
 }
 
-.logo {
-    margin-top: 2rem;
-    font-family: Onsen Japan Demo;
-    font-size: medium;
-    color: rgba(241,204,218,255);
+.logo_image {
+    height: 2rem;
 }
 
 .header__button {
