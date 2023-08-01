@@ -10,6 +10,7 @@ def seed():
     Booking.query.delete()
     Customer.query.delete()
     Treatment.query.delete()
+    Room.query.delete()
     
     customer1 = Customer(first_name="Bilbo", last_name="Baggins")
     customer2 = Customer(first_name="Mike", last_name="Ehrmantraut")

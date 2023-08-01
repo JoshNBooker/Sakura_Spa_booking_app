@@ -11,7 +11,7 @@
     <div class="container">
         <body>
             <header class="nav_bar">
-                <div class="logo"><h3>Sakura<span class="logo__span">Spa</span></h3></div>
+                <div class="logo"><a href="/"><img src="static/logo.jpg" alt="Sakura Spa Logo" class="logo_image"></a></div>
                 <div class="nav__links">
                     <a href="/bookings"><button class="header__button"><i class="fa-solid fa-book"></i></button></a>
                     <a href="/bookings/new"><button class="header__button secondary"><i class="fa-solid fa-plus"></i></button></a>
@@ -26,7 +26,7 @@
     <body>
         <form action="/bookings" method="post" class="form">
             <label for="date">Enter the date of treatment:</label>
-            <input type="datetime-local" name="date_time" id="date_time" class="booking_form_input"><br>
+            <input type="datetime-local" name="date_time" id="date_time" class="booking_form_input" step="900"><br>
             <label for="treatment">Which treatment would you like to book?</label>
             <select name="treatment" id="treatment" class="booking_form_input">
                 {% for treatment in treatments %}

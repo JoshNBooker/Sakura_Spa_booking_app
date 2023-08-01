@@ -9,12 +9,12 @@
         <tr>
             <td>{{ booking.id }}</td>
             <td>{{ booking.date_time }}</td>
-            <td><a href="/show/{{booking.id}}"><button>O</button></a></td>
+            <td><a href="/show/{{booking.id}}"><button class="body__button"><i class="fa-solid fa-eye"></i></button></a></td>
         </tr>
         {%endfor%}
     </table>
     <div class="back_to_customers">
-        <a href="/bookings"><button class="body__button">Select Customer</button></a>
+        <div class="body_button_container"><a href="/bookings"><button class="customer_page body__button">Back to customer select</button></a></div>
     </div>
 
 {% endblock content %}}
