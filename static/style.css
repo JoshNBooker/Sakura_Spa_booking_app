@@ -188,4 +188,13 @@ html{
 
 .room__link {
     margin: 1rem;
+    border-radius: 0.8rem;
+    padding: 5px 28px;
+    border: none;
+    background-color: rgba(241,204,218,255);
+    font-size: medium;
+    font-family: Raleway;
+    cursor: pointer;
+    color: rgba(139,85,117,255);
+    size: 2rem;
 }
