@@ -3,6 +3,15 @@
     <main class="page_title"><h1>Edit Booking #{{booking.id}}</h1></main>
     <body>
         <form action="/bookings/{{booking.id}}" method="post" class="form">
+            <label for="customer">Which customer is having the treatment?</label>
+            <select name="customer" id="customer" class="booking_form_input">
+                {% for customer in customers %}
+                    <option 
+                    value="{{ customer.id }}">
+                    {{ customer.first_name }} {{ customer.last_name }}
+                    </option>
+                {% endfor %}
+            </select> <br>
             <label for="date">Enter the date of treatment:</label>
             <input type="datetime-local" name="date_time" id="date_time" class="booking_form_input" step="900"><br>
             <label for="treatment">Which treatment would you like to book?</label>
@@ -11,15 +20,6 @@
                     <option 
                     value="{{ treatment.id }}">
                     {{ treatment.name }}
-                    </option>
-                {% endfor %}
-            </select> <br>
-            <label for="customer">Which customer is having the treatment?</label>
-            <select name="customer" id="customer" class="booking_form_input">
-                {% for customer in customers %}
-                    <option 
-                    value="{{ customer.id }}">
-                    {{ customer.first_name }} {{ customer.last_name }}
                     </option>
                 {% endfor %}
             </select> <br>
