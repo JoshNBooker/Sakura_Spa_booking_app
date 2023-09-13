@@ -52,3 +52,7 @@ Run with the below settings:
 
 FLASK_RUN_HOST=127.0.0.1
 FLASK_RUN_PORT=4999
+
+Homescreen:
+
+![image](https://github.com/Joshbuuker/Sakura_Spa_booking_app/assets/134558664/c3ecc7b3-b28e-4d09-8365-d9f75b210fb8)
