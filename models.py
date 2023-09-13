@@ -26,4 +26,4 @@ class Booking(db.Model):
     date_time = db.Column(db.DateTime)
     customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'))
     treatment_id = db.Column(db.Integer, db.ForeignKey('treatments.id'))
-    room_id = db.Column(db.Integer, db.ForeignKey('rooms.id'))
+    room_id = db.Column(db.Integer, db.ForeignKey('rooms.id')) 
